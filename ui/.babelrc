@@ -1,0 +1,11 @@
+{
+  "presets": ["@babel/preset-env", "@babel/preset-react"],
+  "plugins": [ 
+    "transform-class-properties", 
+    "transform-object-assign",
+    [
+      "babel-plugin-root-import",  
+      { "rootPathPrefix": "~", "rootPathSuffix" : "src" }
+    ] 
+  ]
+}

@@ -1,0 +1,53 @@
+@import "../../css/SiteTheme.less";
+
+.welcome-right  {
+  box-sizing: border-box;
+  position: relative;
+  width: 384px;
+  border-radius: 2px;
+  background-color: #FFFFFF;
+  box-shadow: 0 1px 2px 0 rgba(0,0,0,0.5);
+  padding: 34px 32px 33px 33px;
+  flex-grow: 0;
+
+  & p { 
+    margin-bottom: 20px;
+  }
+}
+
+.welcome-right-title {
+  margin: 0;
+  margin-bottom: 16px;
+  color: @almost-black;
+  font-size: 20px;
+  line-height: 23px;
+  font-weight: bold;
+  font-family: @brand-font;
+}
+
+.device-link {
+  font-size: 12px;
+  margin-bottom: 12px;
+}
+
+.device-button {
+  margin-bottom: 16px;
+}
+
+@media screen and (max-width: 350px) {
+  .welcome-right {
+    height: auto;
+  }
+}
+
+@media screen and (max-width: @content-width - 1) {
+  .welcome-right {
+    width: 100%;
+    max-width: 384px;
+    height: auto;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 20px;
+    margin-bottom: 25px;
+  }
+}

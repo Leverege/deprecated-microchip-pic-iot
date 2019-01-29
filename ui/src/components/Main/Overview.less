@@ -1,0 +1,40 @@
+@import '../../css/SiteTheme.less';
+
+.overview {
+  max-width: @content-width;
+  display: flex;
+  justify-content: space-around;
+  padding: 54px 20px;
+  margin-left: auto;
+  margin-right: auto;
+  flex-wrap: wrap;
+}
+
+.overview-wrapper {
+  background: #fff;
+}
+
+.overview-image {
+  width: 332px;
+  flex-shrink: 0;
+  margin-right: 84px;
+
+  & img {
+    width: 100%
+  }
+}
+
+.overview-text {
+  max-width: 400px;
+
+  h3 {
+    color: #282828;
+    font-size: 26px;
+    font-weight: bold;
+    margin-bottom: 12px;
+  }
+
+  p {
+    margin-bottom: 12px;
+  }
+}

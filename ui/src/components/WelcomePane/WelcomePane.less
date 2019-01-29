@@ -1,0 +1,110 @@
+@import "../../css/SiteTheme.less";
+
+.welcome {  
+  background-color: #000;
+  background: 
+    url('../../images/purple-background.png');
+  background-size: cover;
+  background-position: center;
+  font-family: @brand-font;
+  padding-bottom: 35px;
+  padding-top: 130px;
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  transition: .75s ease-in
+}
+
+.hidden {
+  opacity: 0!important;
+  height: 0!important;
+  overflow: hidden!important;
+  padding: 0!important;
+}
+
+.welcome-wrapper {
+  width: @content-width;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.welcome-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: @content-width;
+  margin-bottom: 127px;
+  margin-left: auto;
+  margin-right: auto;
+  transition: .5s ease-in
+}
+
+.welcome-main-title {
+  margin-top: 0;
+  margin-bottom: 12px;
+}
+
+.welcome.compact {
+  padding-top: 20px; 
+}
+.welcome-content.compact {
+  margin-bottom: 25px;
+}
+
+.welcome-left {
+  color: @almost-white;
+  width: 472px;
+}
+
+.welcome-full {
+  color: @almost-white;
+  width: 475px;
+  margin-right: 35px;
+  z-index: 3;
+}
+
+.welcome-left .welcome-main-title,
+.welcome-full .welcome-main-title {
+  font-size: 30px;
+  font-weight: bold;
+  line-height: 41px;
+}
+
+.welcome-info-para {
+  color: @almost-white;
+  font-size: 14px;
+  font-family: @brand-font;
+  font-weight: 300;
+}
+
+@media screen and (max-width: @content-width + 10 ) {
+  .welcome {
+    padding: 20px 20px 20px 40px;
+  }
+
+  .welcome-wrapper {
+    width: 100%;
+  }
+
+  .welcome-content {
+    flex-wrap: wrap;
+    width: 100%;
+    margin-bottom: 40px;
+  }
+
+  .welcome-left {
+    width: 100%;
+    max-width: 600px;
+    margin-right: auto;
+  }
+
+  .welcome-right {
+    margin-left: 0;
+  }
+}
+
+@media screen and (max-width: 475px ) {
+  .welcome-full {
+    width: 100%;
+  }
+}

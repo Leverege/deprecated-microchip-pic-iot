@@ -1,0 +1,77 @@
+@import "../../css/SiteTheme.less";
+
+.graphs {
+  background-color: rgba(216,216,216,0.2);
+
+  &.info-section {
+    padding-top: 32px;
+    padding-bottom: 32px;
+  }
+}
+
+.graph {
+  margin-bottom: 20px;
+  max-width: 475px;
+}
+
+.graphs-loading {
+  box-sizing: border-box;
+  width: 370px;
+  height: 255px;
+  padding: 100px 0 0 160px; 
+}
+
+.graphs-wrapper {
+  margin-top: 30px;
+  width: 100%;
+  max-width: 950px;
+  flex-wrap: wrap;
+  margin-left: auto;
+  margin-right: auto;
+  display: flex;
+  justify-content: space-between;
+}
+
+.button-wrapper {
+  max-width: @content-width;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.graphs-left {
+  margin-right: 32px;
+}
+
+@media screen and (max-width: 800px) {
+  .graphs-loading {
+    padding: 10% 0 0 10%;
+    width: 100%;
+    height: 100%;
+  }
+}
+
+@media screen and (max-width: @content-width - 1) {
+  .graphs-wrapper {
+    margin-top: 30px;
+    width: 100%;
+    max-width: 960px;
+    flex-wrap: wrap;
+  }
+
+  .graphs-loading {
+    width: 70%;
+  }
+
+  .graph {
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 20px;
+    min-height: 350px; 
+  }
+
+  .button-wrapper {
+    display: flex;
+    justify-content: center;
+  }
+}

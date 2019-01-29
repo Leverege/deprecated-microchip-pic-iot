@@ -1,0 +1,46 @@
+@import "../../css/SiteTheme.less";
+
+#overlay {
+  z-index: 900;
+  background-color: rgba(71, 71, 71, 0.4);
+  position: fixed;
+  top: 40;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+}
+
+.modal-dialog {
+  position: fixed;
+  width: 440px;
+  top: 35%;
+  left: 50%;
+  transform: translate(-50%, 0);
+}
+
+.modal-buttons {
+  margin-top: 36px;
+  margin-bottom: 15px;
+  text-align: right;
+
+  .cancel {
+    background: transparent;
+    border: none;
+    text-decoration: underline;
+    color: @bright-blue;  
+  
+    &:focus {
+      outline: none;
+    }
+  }
+  
+  button, 
+  .btn {
+    margin-left: 37px;
+
+    &:hover {
+      transform: scale(1.02);
+    }
+  }
+}
+
