@@ -2,31 +2,50 @@
     <a href="https://www.microchip.com/">
         <img src="https://storage.googleapis.com/avr-iot-media/microchip_round_logo.png" alt="Microchip logo" width=72 height=72 />
     </a>
-    <h3 align="center">AVR-IoT Quick Start</h3>
+    <a href="https://cloud.google.com/">
+        <img src="https://storage.googleapis.com/avr-iot-media/cloud-logo.png" alt="GCP Logo" width=91 height=72 />
+    </a>
+    <a href="https://www.leverege.com">
+        <img src="https://storage.googleapis.com/avr-iot-media/lvg-logo.png" alt="Leverege logo" width=72 height=72 />
+    </a>
+    <h2 align="center">PIC-IoT Quick Start</h2>
     <p align="center">
-        Easily connect your devices to the cloud with  
+        A rapid deployment tool for getting your PIC-IoT data on the cloud. Powered by Leverege.
+        <br>
+        <a href="https://www.leverege.com/contact-us"><strong>Talk to an Expert »</strong></a>
+        <br>
+        <br>
     </p>
 </p>
 
+Want to see how easy IoT can be? Check out <a href="https://www.leverege.com/blogpost/avr-iot-guide-pushing-data-to-cloud">our blog post with video walkthroughs of the Quick Start!</a> 
+
 (Links will open in this window. Shift+click, command+click, or middle mouse click to open in new window or tab.)
 
-# AVR-IoT Quick Start
+## Table of Contents
+1. [Set up your GCP and Firebase Projects](#set-up-your-gcp-and-firebase-projects)
+3. [Run the Quickstart Script](#run-the-quickstart-script)
+4. [Add your devices public key to your IoT Core Registry](#add-your-device-public-key-to-your-iot-core-registry)
+5. [Update your PIC-IoT device firmware](#update-your-pic-iot-device-firmware)
 
-This repository contains resources for quickly connecting your [AVR-IoT device](https://avr-iot.com/) to your own Google Project and deploying a live UI to Firebase.
+##
+
+This repository contains resources for quickly connecting your [PIC-IoT device](https://pic-iot.com/) to your own Google Project and deploying a live UI to Firebase.
 
 Following this guide, you will clone this repo into your Google Cloud project, and run a script that:
 * enables [Cloud Functions](https://cloud.google.com/functions/docs/), [Cloud IoT Core](https://cloud.google.com/iot-core/), and [Pub/Sub](https://cloud.google.com/pubsub/), 
-* creates an `avr-iot` Pub/Sub topic,
-* creates an IoT registry (default name: `AVR-IOT`, configurable in the script),
+* creates an `pic-iot` Pub/Sub topic,
+* creates an IoT registry (default name: `pic-iot`, configurable in the script),
 * adds your device's UID to the registry,
 * builds and deploys a Cloud Function to route Pub/Sub messages to your [Firebase project](https://firebase.google.com/), and
 * builds and deploys a UI to firebase.
 
-After running the quickstart script, you'll need to add your device's secure pubkey to the device's entry in your IoT core registry. 
+After running the quick
+script, you'll need to add your device's secure pubkey to the device's entry in your IoT core registry and update the firmware on your device using Atmel START and Atmel Studio. 
 
-## 1. Set up your GCP and Firebase Projects
+## Set up your GCP and Firebase Projects
 
-The quickstart requires that you have a Firebase project connected to a GCP project will billing enabled.
+The quickstart requires that you have a Firebase project connected to a GCP project with billing enabled.
 
 ### GCP Project
 
@@ -54,43 +73,43 @@ The quickstart requires that you have a Firebase project connected to a GCP proj
 
 4. Click 'Add Firebase'.
 
-## 2. Clone this repo in Cloud shell
+## Run the Quickstart Script
 
-1. Open Cloud Shell from your project.
+1. Open [Cloud Shell](https://console.cloud.google.com) from your project.
 
     <img src="https://storage.googleapis.com/avr-iot-media/cloudshell.png" height="80">
 
 2. In the shell, run 
 
 ```bash
-git clone https://github.com/Leverege/microchip-avr-iot.git && cd microchip-avr-iot && bash setup.sh
+git clone https://github.com/Leverege/microchip-pic-iot.git && cd microchip-pic-iot && bash setup.sh
 ```
 
    to clone this repo, enter the newly created directory, and run the quickstart script.
 
-## 3. Run the Quickstart Script
+3. You will need to provide firebase authentication. To do this, copy the authentication URL provided in the shell console, and paste it into a new browser window. Then, log in on that page, authorize the app, and copy the security key. Paste the security key into the shell at the prompt and hit return.
 
-1. At the prompt, enter your AVR-IoT device's UID. Your device's UID is the last portion of the url you see after launching CLICK-ME.HTM from the device. 
+4. At the prompt, enter your PIC-IoT device's UID. Your device's UID is the last portion of the url you see after launching CLICK-ME.HTM from the device. 
 
     <img src="https://storage.googleapis.com/avr-iot-media/device_uid.png" height="30">
 
-2. If you would like to customize your IOT Core registry name, you may do so at the IoT core registry name prompt.
+5. If you would like to customize your IOT Core registry name, you may do so at the IoT core registry name prompt.
 
     IoT core registry names must start with a letter, use only letters, numbers, hyphens, and the following characters:
 
         + . % _ ~
 
-3. The setup script will run for several minutes.
+6. The setup script will run for several minutes.
     The setup script will:
-    * Enable Cloud Functions, IoT, and Pub Sub
-    * Create an IoT Core registry called AVR-IOT and register your device
+    * Enable Cloud Functions, IoT Core, and Pub Sub in your GCP project
+    * Create an IoT Core registry called PIC-IOT and register your device
     * Install, build, and deploy Cloud Functions and the UI
 
-## 4. Add your devices public key to your IoT Core Registry
+## Add your device public key to your IoT Core Registry
 
 1. Make sure your device is connected to your computer via USB.
 
-2. Open your IoT Core registry management page, and select the AVR-IOT registry.
+2. Open your IoT Core registry management page, and select the PIC-IOT registry.
 
     <a href="https://console.cloud.google.com/iot/registries" target="_blank">OPEN IOT CORE REGISTRY MANAGEMENT</a>
 
@@ -109,7 +128,50 @@ git clone https://github.com/Leverege/microchip-avr-iot.git && cd microchip-avr-
 6. In the upload window, navigate to the CURIOSITY drive, then select PUBKEY.TXT and click add to upload it. 
     
     <img src="https://storage.googleapis.com/avr-iot-media/iotcore-click-add.png" height="150">
+    
+## Update your PIC-IoT device firmware
+
+1. Navigate to the <a href="http://start.atmel.com/" target="_blank">Atmel START Rapid Development Tool</a>. Please note that this software is Windows only. 
+
+2. Click the **Browse Example** button. 
+    
+    <img src="https://storage.googleapis.com/avr-iot-media/Microchip%20Assets/Atmel-START-browse.png" height="150">
+    
+3. Search for **ATMEGA4808** and select **PIC IoT WG Sensor Node**.
+
+    <img src="https://storage.googleapis.com/avr-iot-media/Microchip%20Assets/START-search.png" height="150">
+    
+4. Click on **Open Example**.
+    
+    <img src="https://storage.googleapis.com/avr-iot-media/Microchip%20Assets/START-open-example.png" height="75">
+    
+5. Scroll down to the Cloud Configuration section, and enter your GCP Project ID and Registry ID. Under the WLAN Configuration section, enter in your WiFi credentials. Note: the network **must be 2.4Ghz** as the device cannot connect to 5.0 Ghz networks. 
+
+    <img src="https://storage.googleapis.com/avr-iot-media/Microchip%20Assets/START-cloudconfig.png" height="225">
+    
+6. Switch to the **Export Project** tab and click on **Download Pack**.
+
+    <img src="https://storage.googleapis.com/avr-iot-media/Microchip%20Assets/START-export-dl.png" height="300">
+
+7. Open the .atzip file in Atmel Studio and select **Build Solution** under the Build menu bar (or hit F7). Atmel Studio will generate a .hex file in the folder where you saved your project. 
+   
+   <img src="https://storage.googleapis.com/avr-iot-media/Microchip%20Assets/Atmel-build-solution.png" height="225">
+
+   By default, it will be located in ..\Atmel_Studio\7.0\\<YourProjectName\>\\<YourProjectName\>\Debug 
+
+8. Drag and drop the .hex project file into your CURIOSITY drive.
 
 ## View your live data!
 
-And that's it! If you've edited your device with the AVR START rapid development tool, you should see live data flowing to your new Firebase app at \<your-project-id\>.firebaseapp.com/device/\<your-device-uid\>. 
+And that's it! If you've edited your device with the Atmel START rapid development tool, you should see live data flowing to your new Firebase app at \<your-project-id\>.firebaseapp.com/device/\<your-device-uid\>. 
+
+## Building a solution at scale? 
+<p> 
+        Want to build something bigger? We can help you scale your projects into solutions. <a href="https://www.leverege.com/contact-us"><strong>Talk to an IoT expert.</strong></a>
+</p>
+<p> 
+       Whether you're a Fortune 500 company or startup, transforming your current business or creating entirely new businesses, it takes a team with deep experience across verticals and use cases to turn your IoT prototype into an IoT product.
+</p>
+<p align="center"> 
+   <img src="https://storage.googleapis.com/avr-iot-media/lvg-logo-wide.png" height="25">
+    </p>
