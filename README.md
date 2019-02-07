@@ -35,7 +35,7 @@ This repository contains resources for quickly connecting your [PIC-IoT device](
 Following this guide, you will clone this repo into your Google Cloud project, and run a script that:
 * enables [Cloud Functions](https://cloud.google.com/functions/docs/), [Cloud IoT Core](https://cloud.google.com/iot-core/), and [Pub/Sub](https://cloud.google.com/pubsub/), 
 * creates an `pic-iot` Pub/Sub topic,
-* creates an IoT registry (default name: `pic-iot`, configurable in the script),
+* creates an IoT registry (default name: `PIC-IOT`, configurable in the script),
 * adds your device's UID to the registry,
 * builds and deploys a Cloud Function to route Pub/Sub messages to your [Firebase project](https://firebase.google.com/), and
 * builds and deploys a UI to firebase.
