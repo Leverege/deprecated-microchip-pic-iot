@@ -1,5 +1,5 @@
 /**
- * Class representing a writer for writing data sent from AVR-IoT device to Firebase. 
+ * Class representing a writer for writing data sent from PIC-IoT device to Firebase. 
  */
 class FirebaseWriter {
   /**
@@ -25,7 +25,7 @@ class FirebaseWriter {
     const deviceId = hdr.deviceId.slice(1); 
 
     // create ref locally for atomic push of two paths
-    const ref = this.admin.database().ref( '/avr-iot/' );
+    const ref = this.admin.database().ref( '/pic-iot/' );
     const newMsgRef = ref.push();
     const newMsgKey = newMsgRef.key; 
     const updatedDeviceData = {}; 

@@ -5,14 +5,14 @@ const Writer = require('./FirebaseWriter');
 admin.initializeApp();
 const writer = new Writer( {admin} )
 
-exports.recordMessage = functions.pubsub.topic('avr-iot').onPublish((message) => {
+exports.recordMessage = functions.pubsub.topic('pic-iot').onPublish((message) => {
   // Header from IoT core will look like this:
   // { 
   //  deviceId: 'd1232ACFCC3A3F76FE',
   //  deviceNumId: '2801506048952660',
-  //  deviceRegistryId: 'AVR-IOT',
+  //  deviceRegistryId: 'PIC-IOT',
   //  deviceRegistryLocation: 'us-central1',
-  //  projectId: 'avr-iot',
+  //  projectId: 'pic-iot',
   //  subFolder: '' 
   // }
 

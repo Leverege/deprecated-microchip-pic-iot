@@ -9,7 +9,7 @@ PUR='\033[0;35m'
 NC='\033[0m'
 
 printf "\n${BLU}***********************************************\n\n"
-printf "Welcome to the AVR-IoT interactive quick setup\n\n"
+printf "Welcome to the PIC-IoT interactive quick setup\n\n"
 printf "***********************************************${NC}\n\n" 
 
 # get device name, project name and device public key from user
@@ -33,12 +33,12 @@ printf "${NC}"
 fi 
 
 # get user REG_NAME input
-read -p 'Choose an IoT Core registry name (return for AVR-IOT): ' REG_NAME
+read -p 'Choose an IoT Core registry name (return for PIC-IOT): ' REG_NAME
 ATTEMPT=$((ATTEMPT + 1))
 
 # set to default if no text entered
 if [ "$REG_NAME" = "" ]; then
-  REG_NAME="AVR-IOT"
+  REG_NAME="PIC-IOT"
 fi
 
 # strip white space
@@ -53,10 +53,10 @@ firebase use $GOOGLE_CLOUD_PROJECT
 gcloud services enable cloudfunctions.googleapis.com cloudiot.googleapis.com pubsub.googleapis.com
 
 # create pubsub topic
-gcloud pubsub topics create avr-iot
+gcloud pubsub topics create pic-iot
 
 # create IoT core device registry
-gcloud iot registries create $REG_NAME --region=$CLOUD_REGION --event-notification-config=topic=avr-iot
+gcloud iot registries create $REG_NAME --region=$CLOUD_REGION --event-notification-config=topic=pic-iot
 
 # add device to registry
 printf "\n${BLU}Creating IoT core registry ${REG_NAME}${NC}"

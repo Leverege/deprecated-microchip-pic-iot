@@ -10,7 +10,7 @@ export default class WelcomeInset extends React.Component {
     if ( DEVICE_ID ) {
       return (
         <div className="welcome-right">
-          <h3 className="welcome-right-title">If You Already Have an AVR-IoT Board:</h3>
+          <h3 className="welcome-right-title">If You Already Have an PIC-IoT Board:</h3>
           <p>All you need to do to get started is plug in your device and click the link below</p>
           <Button
             type="link"
@@ -24,7 +24,7 @@ export default class WelcomeInset extends React.Component {
     }
     return (
       <div className="welcome-right">
-        <h3 className="welcome-right-title">If You Already Have an AVR-IoT Board:</h3>
+        <h3 className="welcome-right-title">If You Already Have an PIC-IoT Board:</h3>
         <p>All you need to do to get started is plug in your device and go to:
           <br /><br />
           <span className="device-link">{`${window.location.hostname}/device/<Your Device's UID>`}</span>
