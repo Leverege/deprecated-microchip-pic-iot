@@ -89,7 +89,7 @@ git clone https://github.com/Leverege/microchip-pic-iot.git && cd microchip-pic-
 
 4. At the prompt, enter your PIC-IoT device's UID. Your device's UID is the last portion of the url you see after launching CLICK-ME.HTM from the device. 
 
-    <img src="https://storage.googleapis.com/avr-iot-media/device_uid.png" height="30">
+    <img src="https://storage.googleapis.com/pic-iot-media/device_uid.png" height="30">
 
 5. If you would like to customize your IOT Core registry name, you may do so at the IoT core registry name prompt.
 
