@@ -75,7 +75,7 @@ class Modal extends React.Component {
     }
     return (
       <section className="modal-overlay" id="overlay" onClick={e => this.handleOverlayClick( e )}>
-        <TileInset className="modal-dialog" title={title} >
+        <TileInset className="modal-dialog" title={title}>
           {this.renderText( modalType )}
           <div className="modal-buttons">
             <button id="modal-cancel" autoFocus className="cancel" onClick={this.toggleModal}>Cancel</button>

@@ -1,8 +1,8 @@
-const path = require( 'path' )
+const path = require( 'path' );
 const webpack = require( 'webpack' )
 const CopyWebpackPlugin = require( 'copy-webpack-plugin' )
-const combineLoaders = require( 'webpack-combine-loaders' )
-const ExtractTextPlugin = require( 'mini-css-extract-plugin' )
+const combineLoaders = require( 'webpack-combine-loaders' );
+const ExtractTextPlugin = require( 'mini-css-extract-plugin' );
 const Dotenv = require( 'dotenv-webpack' );
 const autoprefixer = require( 'autoprefixer' )
 const postcssnested = require( 'postcss-nested' )
@@ -10,11 +10,16 @@ const UglifyJSPlugin = require( 'uglifyjs-webpack-plugin' )
 
 module.exports = {
   entry : [ 'babel-polyfill', './src/index.js' ],
-  output : { path : `${__dirname}/dist/`, filename : 'bundle.js' },
+  output : { 
+    path : `${__dirname}/dist/`, 
+    filename : 'bundle.js',
+    publicPath : '/' 
+  },
   resolve : {
     extensions : [ '*', '.js', '.jsx', '.css', '.less' ],
   },
 
+  //  <meta http-equiv="Content-Security-Policy" content="default-src 'self'  *.bootstrapcdn.com *.googleapis.com *.cox2m.com *.google-analytics.com 'unsafe-inline' 'unsafe-eval' blob: wss://0.0.0.0:8589 data: *.gstatic.com *.mapbox.com">
   // Necessary plugins for hot load
   plugins : [ 
     new ExtractTextPlugin( 'style.css', { allChunks : true } ),
@@ -36,6 +41,9 @@ module.exports = {
     } } ),
     new Dotenv( {
       path : './.env', // Path to .env file (this is the default) 
+    } ),
+    new webpack.DefinePlugin( {
+      'process.env.NODE_ENV' : JSON.stringify( 'production' )
     } ),
     new webpack.LoaderOptionsPlugin( {
       options : {
@@ -103,4 +111,4 @@ module.exports = {
       { test : /\.(ttf|eot)(\?v=[0-9].[0-9].[0-9])?$/, loader : 'file-loader' }, // ?name=[name].[ext]" } 
     ],
   }
-}
+};
