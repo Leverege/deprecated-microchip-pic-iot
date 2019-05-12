@@ -25,7 +25,6 @@ module.exports = {
     new ExtractTextPlugin( 'style.css', { allChunks : true } ),
     new UglifyJSPlugin( { uglifyOptions : {
       compress : {
-        warnings : false,
         conditionals : true,
         unused : true,
         comparisons : false,
