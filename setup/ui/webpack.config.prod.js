@@ -3,10 +3,9 @@ const webpack = require( 'webpack' )
 const CopyWebpackPlugin = require( 'copy-webpack-plugin' )
 const combineLoaders = require( 'webpack-combine-loaders' );
 const ExtractTextPlugin = require( 'mini-css-extract-plugin' );
-const Dotenv = require( 'dotenv-webpack' );
 const autoprefixer = require( 'autoprefixer' )
 const postcssnested = require( 'postcss-nested' )
-const UglifyJSPlugin = require( 'uglifyjs-webpack-plugin' )
+const TerserPlugin = require( 'terser-webpack-plugin' )
 
 module.exports = {
   entry : [ 'babel-polyfill', './src/index.js' ],
@@ -23,7 +22,7 @@ module.exports = {
   // Necessary plugins for hot load
   plugins : [ 
     new ExtractTextPlugin( 'style.css', { allChunks : true } ),
-    new UglifyJSPlugin( { uglifyOptions : {
+    new TerserPlugin( { terserOptions : {
       warnings : false,
       compress : {
         conditionals : true,
@@ -39,9 +38,6 @@ module.exports = {
         comments : false
       }
     } } ),
-    new Dotenv( {
-      path : './.env', // Path to .env file (this is the default) 
-    } ),
     new webpack.DefinePlugin( {
       'process.env.NODE_ENV' : JSON.stringify( 'production' )
     } ),
