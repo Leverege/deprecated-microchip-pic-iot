@@ -8,7 +8,7 @@ class FirebaseWriter {
    * @param {object} config.admin Firebase apiKeys, autoDomains, databaseURL, projectId, storageBucket, and messagingSenderId
    */
 
-  constructor ( config ) {
+  constructor( config ) {
     this.admin = config.admin;
   }
 
@@ -22,7 +22,7 @@ class FirebaseWriter {
     // }
 
     // strip 'd' char added by IoT core from deviceId
-    const deviceId = hdr.deviceId.slice(1); 
+    const deviceId = hdr.deviceId.slice( 1 ); 
 
     // create ref locally for atomic push of two paths
     const ref = this.admin.database().ref( '/pic-iot/' );
@@ -37,15 +37,15 @@ class FirebaseWriter {
     updatedDeviceData[`lastUpdated/${deviceId}`] = msg.time; 
     
     // send update to Firebase
-    return ref.update(updatedDeviceData)
-      .then( r => {
+    return ref.update( updatedDeviceData )
+      .then( ( r ) => {
         console.log( 'wrote device data to firebase for device:', deviceId )
         return null // linting requires return on .then()
-      })
-      .catch( x => { 
-        console.log( 'error writing device to firebase', x)
+      } )
+      .catch( ( x ) => { 
+        console.log( 'error writing device to firebase', x )
         throw x
-      })
+      } )
   }
 }
 
