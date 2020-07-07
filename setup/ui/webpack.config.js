@@ -1,39 +1,27 @@
 const path = require( 'path' );
 const webpack = require( 'webpack' )
 const CopyWebpackPlugin = require( 'copy-webpack-plugin' )
-const combineLoaders = require( 'webpack-combine-loaders' );
-const ExtractTextPlugin = require( 'mini-css-extract-plugin' );
-const Dotenv = require( 'dotenv-webpack' );
+const combineLoaders = require( 'webpack-combine-loaders' )
+const ExtractTextPlugin = require( 'mini-css-extract-plugin' )
 const autoprefixer = require( 'autoprefixer' )
 const postcssnested = require( 'postcss-nested' )
 
 module.exports = {
   entry : [ 'babel-polyfill', './src/index.js' ],
-  mode : 'development',
-  output : { 
-    path : __dirname, 
-    filename : 'bundle.js', 
-    publicPath : '/'
-  },
+  output : { path : __dirname, filename : 'bundle.js' },
   resolve : {
     extensions : [ '*', '.js', '.jsx', '.css', '.less' ],
   },
   devServer : {
     watchOptions : { watch : false, ignored : /node_modules/ },
   },
+  mode : 'development',
 
-  //  <meta http-equiv="Content-Security-Policy" content="default-src 'self'  *.bootstrapcdn.com *.googleapis.com *.cox2m.com *.google-analytics.com 'unsafe-inline' 'unsafe-eval' blob: wss://0.0.0.0:8589 data: *.gstatic.com *.mapbox.com">
   // Necessary plugins for hot load
   plugins : [ 
     new webpack.NoEmitOnErrorsPlugin(),
     new webpack.HotModuleReplacementPlugin(),
     new ExtractTextPlugin( 'style.css', { allChunks : true } ),
-    new Dotenv( {
-      path : './.env', // Path to .env file (this is the default) 
-    } ),
-    new webpack.DefinePlugin( {
-      'process.env.NODE_ENV' : JSON.stringify( 'development' )
-    } ),
     new webpack.LoaderOptionsPlugin( {
       options : {
         context : __dirname,
@@ -83,7 +71,7 @@ module.exports = {
         use : [
           'style-loader',
           'css-loader',
-          'less-loader', 
+          'less-loader', // if you want .less support
         ]
       },
       {
